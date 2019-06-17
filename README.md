@@ -1,7 +1,7 @@
 # Object Oriented Programming
 
 The aim of the exercise is to get started with OOP in JavaScript
-* [ ] Secret Life Of Boject
+* [ ] Secret Life Of Object
 * [ ] __proto__ v prototype
 * [ ] Multiple Ways Of Creating Objects
 * [ ] Class
