@@ -32,8 +32,19 @@ function User(name,score) {
     this.score = score;
 }
 User.prototype.increaseScore = function() {
-    return this.score++;
+    return this.score++
 }
 User.prototype.decreaseScore = function() {
     return this.score--;
+}
+
+
+
+
+// 3. UsingClasses
+class User {
+    constructor(name, score) {
+        this.name = name;
+        this.score = score;
+    }
 }

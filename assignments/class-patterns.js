@@ -15,8 +15,13 @@ var user = function(name, id, password,noOfProject){
         return obj.password;
     };
 
-    obj.changeUsername = function changeUsername(){
+    obj.changeUsername = function changeUsername(newUserName){
+        obj.name = newUserName
         return obj.name;
+    };
+    obj.changePassword = function changePassword(newPassword){
+        obj.password = newPassword;
+        return obj.password;
     };
 
     obj.incrementProject = function incrementProject(){
@@ -28,36 +33,53 @@ var user = function(name, id, password,noOfProject){
     };
 return obj;
 
+let aman = user("aman", 77, "qwerty123", 12)
+
 }
 
 //2. Using Object.create
 
-function createUser(name, id, password, noOfProject){
-    this.name = name;
-    this.id = id;
-    this.password = password;
-    this.noOfProject = noOfProject;
-}
 
-createUser.prototype.getUsername = function getUsername(){
+createUser = {}
+
+createUser.getUsername = function getUsername(){
     return this.name;
 };
 
-createUser.prototype.getPassword = function getPassword(){
+createUser.getPassword = function getPassword(){
     return this.password;
 };
 
-createUser.prototype.changeUsername = function changeUsername(){
+createUser.changeUsername = function changeUsername(newUsername){
+    this.name = newUsername
     return this.name;
 };
 
-createUser.prototype.incrementProject = function incrementProject(){
+createUser.changePassword = function changePassword(newPassword){
+    this.password = newPassword
+    return this.password;
+};
+
+createUser.incrementProject = function incrementProject(){
     return this.noOfProject = ++(this.noOfProject);
 };
 
-createUser.prototype.decrementProject = function decrementProject(){
+createUser.decrementProject = function decrementProject(){
     return this.noOfProject = --(this.noOfProject);
 };
+
+
+function create(name, id, password, noOfProject){
+    let user = Object.create(createUser);
+    user.name = name;
+    user.id = id;
+    user.password = password;
+    user.noOfProject = noOfProject;
+ 	return user
+}
+
+let aman = create('aman','17','qq',3)
+
 //3.Using Pseudoclassical Way
 function createUser(name, id, password,noOfProject){
     
@@ -74,8 +96,14 @@ createUser.prototype.getPassword = function(){
     return this.password;
 };
 
-createUser.prototype.changeUsername = function(){
-    return this.name;
+createUser.prototype.changeUsername = function(newUserName){
+    this.name = newUserName
+    return name;
+};
+
+createUser.prototype.changePassword = function(newPassword){
+    this.password = newPassword;
+    return password;
 };
 
 createUser.prototype.incrementProject = function(){
@@ -85,6 +113,7 @@ createUser.prototype.incrementProject = function(){
 createUser.prototype.decrementProject = function(){
     return this.noOfProject = --(this.noOfProject);
 };
+let aman = new createUser("aman", 77, "qwerty123", 12);
 //4.Using class
 class User {
     constructor(name, id, password,noOfProject) {
@@ -100,8 +129,14 @@ class User {
         return this.password;
     };
 
-    changeUsername(){
-        return this.name;
+    changeUsername(newUserName){
+        this.name = newUserName;
+        return name;
+    };
+
+    changePassword(newPassword){
+        this.password = newPassword;
+        return this.password;
     };
 
     incrementProject(){
@@ -113,3 +148,4 @@ class User {
     };
     
   }
+  let aman = user('aman','77','qwerty123',15)
