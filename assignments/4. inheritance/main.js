@@ -47,4 +47,22 @@ class User {
         this.name = name;
         this.score = score;
     }
+    increaseScore() {
+        return this.score++
+    }
+    decreaseScore() {
+        return this.score--
+    }
 }
+
+class PaidUser extends User {
+    constructor(name,score,balance) {
+        super(name,score);
+        this.balance=balance;
+    }
+    increasebalance() {
+      return this.balance++
+    }
+}
+
+var aman = new PaidUser('aman',12,123)
